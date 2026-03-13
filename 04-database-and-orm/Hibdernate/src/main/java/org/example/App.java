@@ -36,7 +36,7 @@ public class App
         student.setId(1);
         student.setName("Yasmin Kotb");
         student.setMark(95);
-        student.setLaptop(laptop);
+        student.getLaptops().add(laptop);
 
         Configuration con=new Configuration().configure()
                 .setProperty("hibernate.connection.url", props.getProperty("db.url"))
