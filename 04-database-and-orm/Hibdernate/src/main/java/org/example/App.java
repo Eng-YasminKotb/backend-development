@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.entity.Student;
+import org.example.entity.StudentName;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -24,12 +25,16 @@ public class App
             throw new RuntimeException(e);
         }
 
+        StudentName studentName= new StudentName();
+        studentName.setFName("Yasmin");
+        studentName.setMName("Kotb");
+        studentName.setLName("Elsaid");
 
         Student student=new Student();
-        student.setId(3);
-        student.setName("khadeja");
-        student.setMark(99);
 
+        student.setId(1);
+        student.setName(studentName);
+        student.setMark(95);
 
         Configuration con=new Configuration().configure()
                 .setProperty("hibernate.connection.url", props.getProperty("db.url"))
@@ -45,5 +50,9 @@ public class App
         session.save(student);
 
         transaction.commit();
+
+        System.out.println(student);
+
+
     }
 }

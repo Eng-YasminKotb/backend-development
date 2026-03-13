@@ -10,16 +10,16 @@ public class Student {
     private int id;
 
     @Column(name = "student_name")
-    private String name;
+    private StudentName name;
 
-    @Transient
     private double mark;
 
-    public String getName() {
+
+    public StudentName getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(StudentName name) {
         this.name = name;
     }
 
