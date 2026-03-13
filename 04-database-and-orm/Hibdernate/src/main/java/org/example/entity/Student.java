@@ -10,16 +10,27 @@ public class Student {
     private int id;
 
     @Column(name = "student_name")
-    private StudentName name;
+    private String name;
 
+    @Column(name = "student_mark")
     private double mark;
 
+    @OneToOne
+    private Laptop laptop;
 
-    public StudentName getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(StudentName name) {
+    public Laptop getLaptop() {
+        return laptop;
+    }
+
+    public void setLaptop(Laptop laptop) {
+        this.laptop = laptop;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -42,9 +53,10 @@ public class Student {
     @Override
     public String toString() {
         return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "laptop=" + laptop +
                 ", mark=" + mark +
+                ", name='" + name + '\'' +
+                ", id=" + id +
                 '}';
     }
 }
