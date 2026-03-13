@@ -1,13 +1,18 @@
 package org.example.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name ="student_table")
 public class Student {
+
     @Id
     private int id;
+
+    @Column(name = "student_name")
     private String name;
+
+    @Transient
     private double mark;
 
     public String getName() {
